@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+$swMinDesktop: 376px;
+
+$clrPrimaryDesaturatedRed: hsl(0, 36%, 70%);
+$clrPrimarySoftRed: hsl(0, 93%, 68%);
+$clrNeutralDarkGrayishRed: hsl(0, 6%, 24%);
+
+$gradientWhite: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+$gradientPink: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+$fsParagraph: 16px;
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    font-family: 'Josefin Sans', sans-serif;
+    min-height: 100vh;
+    background: $gradientWhite;
+    
+    .logo {
+        padding: 2em;
+        height: 5.75em;
+    }
+
+    .hero {
+        background-image: url("../img/hero-mobile.jpg");
+        background-size: 100%;
+        width: 100%;
+        height: 0;
+        padding-top: 66%;
+    }
+
+    .coming-soon {
+        display: flex;
+        flex-direction: column;
+        padding: 1.75em;
+        gap: 1.5em;
+        margin-top: 3em;
+        text-align: center;
+
+        h1 {
+            text-transform: uppercase;
+            font-weight: 600;
+            color: $clrNeutralDarkGrayishRed;
+            line-height: 1.1;
+            letter-spacing: .5rem;
+            font-size: 4rem;
+
+            mark {
+                background: none;
+                color: $clrPrimaryDesaturatedRed;
+                font-weight: 300;
+            }
+
+        }
+
+        p {
+            color: $clrPrimaryDesaturatedRed;
+            font-size: $fsParagraph;
+            line-height: 1.5;
+        }
+    }
+
+    .input {
+        display: flex;
+        justify-content: center;
+        padding: 2em;
+
+        input {
+            border: 1px solid $clrPrimaryDesaturatedRed;
+            width: 100%;
+            font-size: 1.5rem;
+            padding-block: .75em;
+            padding-left: 1.5em;
+            padding-right: 5em;
+            border-radius: 2em;
+            background: none;
+            
+            &::placeholder {
+                color: rgba($clrPrimaryDesaturatedRed, .75);
+                
+                font-size: 1.25rem;
+                font-weight: 300;
+            }
+
+            &:active,
+            &:focus,
+            &:hover {
+                outline: none;   
+            }
+
+            &.invalid {
+                border: 2px solid $clrPrimarySoftRed;
+                background-image: url("../img/icon-error.svg");
+                background-repeat: no-repeat;
+                background-position: right 3em center;
+            }
+        }
+
+        button {
+            background: url("../img/icon-arrow.svg"), $gradientPink;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 1.75em .15em $clrPrimaryDesaturatedRed;
+            z-index: 1000;
+            padding: 2.5em 3.5em;
+            margin-left: -5em;
+            line-height: 3em;
+            border-radius: 3em;
+            border: none;
+            cursor: pointer;
+
+            &:hover,
+            &:active,
+            &:focus {
+                background: url("../img/icon-arrow.svg"), hsl(0, 80%, 86%);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .error {
+        font-size: 1rem;
+        color: $clrPrimarySoftRed;
+        visibility: hidden;
+
+        &.visible {
+            margin-left: 4.5em;
+            margin-top: -1em;
+            visibility: visible;
+        }
+
+        &::before {
+            content: "Please provide a valid email";
+        }
+    }
+}
+
+@media (min-width: $swMinDesktop) {
+    main {
+
+        background-image: url("../img/bg-pattern-desktop.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        padding-left: 5em;
+
+        .logo, 
+        .coming-soon, 
+        .input, 
+        .error {
+            grid-column: 1;
+            grid-row: 1;
+            padding-left: 3em;
+            margin-top: 2em;
+        }
+
+        .coming-soon {
+            padding-top: 4em;
+            text-align: left;
+            margin-top: 10em;
+        }
+
+        .hero {
+            grid-column: 2;
+            grid-row: 1;
+            height: 100%;
+            background-image: url("../img/hero-desktop.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .input,
+        .error {
+            align-self: center;
+        }
+
+        .error {
+
+            &.visible {
+                margin-left: 2.5em;
+                margin-top: 10em;
+            }
+        }
+
+        .input {
+            button {
+                padding: 2.5em 5em;
+            }
+        }
+    }
+}

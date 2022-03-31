@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [See the demo on Github Pages](https://jimi-s-frontend-mentor-cs.github.io/Base-Appare-coming-soon-page/)
+- Live Site URL: [See the demo on Github Pages](https://jimi-s-frontend-mentor-cs.github.io/Base-Apparel-coming-soon-page/)
 
 ## My process
 
